@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Online Shop</title>
+</head>
+<body>
+    <h1>Online Shop</h1>
+    
+    <div class="add">
+        <h2>Add Product</h2>
+        <input type="text" id="productName" placeholder="Product name">
+        <input type="number" id="productPrice" placeholder="Product price">
+        <button id="addProduct">Add Product</button>
+    </div>
+
+    <div class="prod">
+        <h2>Products</h2><br>
+        <ol id="productList">
+        </ol>
+        <button id="loadProducts">Load products</button>
+    </div>
+
+    <div class="del">
+        <h2>Delete Product</h2>
+        <select id="deleteProduct">
+            
+        </select>
+        <button id="deleteSelectedProduct">Delete Product</button>
+    </div>
+
+    <div class="sum">
+        <h2>Total Sum</h2>
+        <p id="totalSum">$0</p>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

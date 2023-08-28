@@ -7,37 +7,34 @@
     <title>Online Shop</title>
 </head>
 <body>
-    <h1>Online Shop</h1>
+    <div class="container">
+        <h1>Online Shop</h1>
+        
+        <div class="section">
+            <h2>Add Product</h2>
+            <input type="text" id="productName" placeholder="Product name">
+            <input type="number" id="productPrice" placeholder="Product price">
+            <button id="addProduct">Add Product</button>
+        </div>
+
+        <div class="section">
+            <h2>Products</h2>
+            <ol id="productList"></ol>
+            <button id="loadProducts">Load products</button>
+        </div>
+
+        <div class="section">
+            <h2>Delete Product</h2>
+            <select id="deleteProduct"></select>
+            <button id="deleteSelectedProduct">Delete Product</button>
+        </div>
+
+        <div class="section">
+            <h2>Total Sum</h2>
+            <p id="totalSum" class="total">$0</p>
+        </div>
+    </div>
     
-    <div class="add">
-        <h2>Add Product</h2>
-        <input type="text" id="productName" placeholder="Product name">
-        <input type="number" id="productPrice" placeholder="Product price">
-        <button id="addProduct">Add Product</button>
-    </div>
-
-    <div class="prod">
-        <h2>Products</h2><br>
-        <ol id="productList">
-        </ol>
-        <button id="loadProducts">Load products</button>
-    </div>
-
-    <div class="del">
-        <h2>Delete Product</h2>
-        <select id="deleteProduct">
-            
-        </select>
-        <button id="deleteSelectedProduct">Delete Product</button>
-    </div>
-
-    <div class="sum">
-        <h2>Total Sum</h2>
-        <p id="totalSum">$0</p>
-    </div>
-
-
-    
-   <script src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

@@ -36,6 +36,12 @@ input, select, button {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+}
 button {
   background-color: #007BFF;
   color: #fff;

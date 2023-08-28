@@ -1,67 +1,49 @@
-const productList = document.getElementById('productList');
-const loadProductsButton = document.getElementById('loadProducts');
-const productNameInput = document.getElementById('productName');
-const productPriceInput = document.getElementById('productPrice');
-const addProductButton = document.getElementById('addProduct');
-const deleteProductSelect = document.getElementById('deleteProduct');
-const deleteSelectedProductButton = document.getElementById('deleteSelectedProduct');
-const totalSumDisplay = document.getElementById('totalSum');
-
 const products = [];
 
-loadProductsButton.addEventListener('click', () => {
-    displayProducts();
-    updateTotalSum();
-});
+const productNameInput = document.getElementById('productName');
+const productPriceInput = document.getElementById('productPrice');
+const productImageInput = document.getElementById('productImage');
+const addProductButton = document.getElementById('addProduct');
+const productList = document.getElementById('productList');
 
 addProductButton.addEventListener('click', () => {
     const name = productNameInput.value;
     const price = parseFloat(productPriceInput.value);
-    if (name && !isNaN(price)) {
-        const registrationTime = new Date().toLocaleTimeString(); // Get the current time
-        addProduct(name, price, registrationTime);
+    const image = productImageInput.files[0];
+
+    if (name && !isNaN(price) && image) {
+        const registrationTime = new Date().toLocaleTimeString();
+        addProduct(name, price, registrationTime, image);
         productNameInput.value = '';
         productPriceInput.value = '';
+        productImageInput.value = null; // Clear the file input
         displayProducts();
-        updateTotalSum();
     }
 });
 
-deleteSelectedProductButton.addEventListener('click', () => {
-    const selectedIndex = deleteProductSelect.selectedIndex;
-    if (selectedIndex !== -1) {
-        deleteProduct(selectedIndex);
-        displayProducts();
-        updateTotalSum();
-    }
-});
-
-function addProduct(name, price, time) {
-    const product = { name, price, time };
+function addProduct(name, price, time, image) {
+    const product = { name, price, time, image };
     products.push(product);
-}
-
-function deleteProduct(index) {
-    products.splice(index, 1);
 }
 
 function displayProducts() {
     productList.innerHTML = '';
-    deleteProductSelect.innerHTML = '';
-    
-    products.forEach((product, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${product.name} - $${product.price} - Registered at ${product.time}`;
-        productList.appendChild(listItem);
-        
-        const option = document.createElement('option');
-        option.value = index;
-        option.textContent = product.name;
-        deleteProductSelect.appendChild(option);
-    });
-}
 
-function updateTotalSum() {
-    const sum = products.reduce((total, product) => total + product.price, 0);
-    totalSumDisplay.textContent = `$${sum}`;
+    products.forEach((product) => {
+        const listItem = document.createElement('li');
+        const imageElement = document.createElement('img');
+        imageElement.src = URL.createObjectURL(product.image);
+        imageElement.alt = product.name + " image";
+        imageElement.classList.add('product-image');
+        
+        listItem.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <p>Registered at ${product.time}</p>
+        `;
+
+        listItem.appendChild(imageElement);
+
+        productList.appendChild(listItem);
+    });
 }

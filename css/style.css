@@ -24,6 +24,11 @@ h1 {
 .section {
   margin: 20px 0;
 }
+
+.product-image{
+  width: 15%;
+}
+
 h2 {
   color: #333;
   margin-bottom: 10px;

@@ -1,5 +1,4 @@
 const products = [];
-
 const productNameInput = document.getElementById('productName');
 const productPriceInput = document.getElementById('productPrice');
 const productImageInput = document.getElementById('productImage');
@@ -12,7 +11,7 @@ addProductButton.addEventListener('click', () => {
     const image = productImageInput.files[0];
 
     if (name && !isNaN(price) && image) {
-        const registrationTime = new Date().toLocaleTimeString();
+        const registrationTime = new Date().toLocaleDateString();
         addProduct(name, price, registrationTime, image);
         productNameInput.value = '';
         productPriceInput.value = '';
@@ -29,7 +28,7 @@ function addProduct(name, price, time, image) {
 function displayProducts() {
     productList.innerHTML = '';
 
-    products.forEach((product) => {
+    products.forEach((product, index) => {
         const listItem = document.createElement('li');
         const imageElement = document.createElement('img');
         imageElement.src = URL.createObjectURL(product.image);
@@ -40,10 +39,35 @@ function displayProducts() {
             <h3>${product.name}</h3>
             <p>Price: $${product.price}</p>
             <p>Registered at ${product.time}</p>
+            <button class="buy-button" data-index="${index}">Buy</button>
+            <button class="delete-button" data-index="${index}">Delete</button>
         `;
 
         listItem.appendChild(imageElement);
 
         productList.appendChild(listItem);
     });
+
+    // Add event listeners for Buy and Delete buttons
+    const buyButtons = document.querySelectorAll('.buy-button');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', handleBuyButtonClick);
+    });
+
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', handleDeleteButtonClick);
+    });
+}
+
+function handleBuyButtonClick(event) {
+    const index = event.target.getAttribute('data-index');
+    const product = products[index];
+    // Implement the functionality for buying the product
+}
+
+function handleDeleteButtonClick(event) {
+    const index = event.target.getAttribute('data-index');
+    products.splice(index, 1);
+    displayProducts();
 }

@@ -18,7 +18,7 @@
             addProduct(name, price, registrationTime, image);
             productNameInput.value = '';
             productPriceInput.value = '';
-            productImageInput.value = null; // Clear the file input
+            productImageInput.value = null; 
             displayProducts();
         }
     });

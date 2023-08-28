@@ -9,37 +9,31 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-
-.container {
+body .container {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
   max-width: 600px;
 }
-
-h1 {
+body h1 {
   color: #333;
   text-align: center;
 }
-
-.section {
+body .section {
   margin: 20px 0;
 }
-
-.product-image {
+body .product-image {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
   margin-top: 10px;
 }
-
-h2 {
+body h2 {
   color: #333;
   margin-bottom: 10px;
 }
-
-input, select, button {
+body input, body select, body button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -47,34 +41,31 @@ input, select, button {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
-button {
+body button {
   background-color: #007BFF;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-button:hover {
+body button:hover {
   background-color: #0056b3;
 }
-
-ol {
+body ol {
   list-style-type: none;
   padding: 0;
 }
-
-li {
+body ol li {
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.total {
+body .total {
   font-size: 1.5rem;
   text-align: right;
   margin-top: 20px;
   color: #007BFF;
-} 
+}
+
+/*# sourceMappingURL=style.css.map */

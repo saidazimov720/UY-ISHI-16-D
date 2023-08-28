@@ -46,7 +46,6 @@
                 <button class="delete-button" data-index="${index}">Delete</button>
             `;
             listItem.appendChild(imageElement);
-
             productList.appendChild(listItem);
         });
         const buyButtons = document.querySelectorAll('.buy-button');

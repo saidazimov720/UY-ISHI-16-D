@@ -14,7 +14,7 @@
         const image = productImageInput.files[0];
 
         if (name && !isNaN(price) && image) {
-            const registrationTime = new Date().toLocaleDateString();
+            const registrationTime = new Date().toLocaleTimeString();
             addProduct(name, price, registrationTime, image);
             productNameInput.value = '';
             productPriceInput.value = '';
@@ -31,26 +31,26 @@
     function displayProducts() {
         productList.innerHTML = '';
     
-        products.forEach((product, index) => {
-            const listItem = document.createElement('li');
-            const imageElement = document.createElement('img');
-            imageElement.src = URL.createObjectURL(product.image);
-            imageElement.alt = product.name + " image";
-            imageElement.classList.add('product-image');
-    
+        products.forEach((product, index) => {    
             const buyButton = document.createElement('button');
             buyButton.classList.add('buy-button');
             buyButton.setAttribute('data-index', index);
             buyButton.textContent = 'Buy';
-            buyButton.style.padding = '5px 10px'; 
+            buyButton.style.padding = '1px'; 
             buyButton.style.fontSize = '14px'; 
     
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('delete-button');
             deleteButton.setAttribute('data-index', index);
             deleteButton.textContent = 'Delete';
-            deleteButton.style.padding = '5px 10px'; 
+            deleteButton.style.padding = '1px'; 
             deleteButton.style.fontSize = '14px'; 
+
+            const listItem = document.createElement('li');
+            const imageElement = document.createElement('img');
+            imageElement.src = URL.createObjectURL(product.image);
+            imageElement.alt = product.name + " image";
+            imageElement.classList.add('product-image');
     
             listItem.innerHTML = `
                 <h3>${product.name}</h3>

@@ -30,29 +30,43 @@
 
     function displayProducts() {
         productList.innerHTML = '';
-
+    
         products.forEach((product, index) => {
             const listItem = document.createElement('li');
             const imageElement = document.createElement('img');
             imageElement.src = URL.createObjectURL(product.image);
             imageElement.alt = product.name + " image";
             imageElement.classList.add('product-image');
-
+    
+            const buyButton = document.createElement('button');
+            buyButton.classList.add('buy-button');
+            buyButton.setAttribute('data-index', index);
+            buyButton.textContent = 'Buy';
+            buyButton.style.padding = '5px 10px'; 
+            buyButton.style.fontSize = '14px'; 
+    
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
+            deleteButton.setAttribute('data-index', index);
+            deleteButton.textContent = 'Delete';
+            deleteButton.style.padding = '5px 10px'; 
+            deleteButton.style.fontSize = '14px'; 
+    
             listItem.innerHTML = `
                 <h3>${product.name}</h3>
                 <p>Price: $${product.price}</p>
-                <p>Registered at ${product.time}</p>
-                <button class="buy-button" data-index="${index}">Buy</button>
-                <button class="delete-button" data-index="${index}">Delete</button>
-            `;
+                <p>Registered at ${product.time}</p>`;
             listItem.appendChild(imageElement);
+            listItem.appendChild(buyButton);
+            listItem.appendChild(deleteButton);
             productList.appendChild(listItem);
         });
+    
         const buyButtons = document.querySelectorAll('.buy-button');
         buyButtons.forEach(button => {
             button.addEventListener('click', handleBuyButtonClick);
         });
-
+    
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(button => {
             button.addEventListener('click', handleDeleteButtonClick);

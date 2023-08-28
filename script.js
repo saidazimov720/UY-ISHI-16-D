@@ -45,7 +45,6 @@
                 <button class="buy-button" data-index="${index}">Buy</button>
                 <button class="delete-button" data-index="${index}">Delete</button>
             `;
-
             listItem.appendChild(imageElement);
 
             productList.appendChild(listItem);

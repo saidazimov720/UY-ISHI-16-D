@@ -23,8 +23,8 @@
         }
     });
 
-    function addProduct(...product) {
-        // const  = { name, price, time, image };
+    function addProduct(name, price, time, image) {
+        const product = { name, price, time, image };
         products.push(product);
     }
 

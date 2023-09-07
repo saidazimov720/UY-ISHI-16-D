@@ -81,10 +81,10 @@ const products = [];
                 imageElement.classList.add('product-image');
 
                 listItem.innerHTML = `
-                    <h3>${product.name}</h3>
-                    <p>Price: $${product.price}</p>
-                    <p>Registered at ${product.time}</p>
-                    <p>Counter: <span class="product-counter">${product.counter}</span></p>`;
+                <h3>${product.name}</h3>
+                <p>Price: $${product.price}</p>
+                <p>Registered at ${product.time}</p>
+                <p>Counter: <span class="product-counter" data-index="${index}">${product.counter}</span></p>`;            
                 listItem.appendChild(imageElement);
                 listItem.appendChild(buyButton);
                 listItem.appendChild(decreaseButton);
@@ -120,21 +120,24 @@ const products = [];
             product.increase(); 
             totalSum += product.price;
             totalSumElement.textContent = `$${totalSum.toFixed(2)}`;
-            document.querySelector(`[data-index="${index}"] .product-counter`).textContent = product.counter;
+            const counterElement = document.querySelector(`[data-index="${index}"] .product-counter`);
+            counterElement.textContent = product.counter;
         }
-
+        
         function handleDecreaseButtonClick(event) {
             const index = event.target.getAttribute('data-index');
             const product = products[index];
             product.decrease(); 
-            document.querySelector(`[data-index="${index}"] .product-counter`).textContent = product.counter;
+            const counterElement = document.querySelector(`[data-index="${index}"] .product-counter`);
+            counterElement.textContent = product.counter;
         }
-
+        
         function handleIncreaseButtonClick(event) {
             const index = event.target.getAttribute('data-index');
             const product = products[index];
             product.increase(); 
-            document.querySelector(`[data-index="${index}"] .product-counter`).textContent = product.counter;
+            const counterElement = document.querySelector(`[data-index="${index}"] .product-counter`);
+            counterElement.textContent = product.counter;
         }
 
         function handleDeleteButtonClick(event) {

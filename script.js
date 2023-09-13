@@ -186,5 +186,4 @@ class Product {
             }
         }
 
-        // Create an instance of ProductManager
         const productManager = new ProductManager();

@@ -39,7 +39,7 @@ addProductButton.addEventListener('click', () => {
     productPriceInput.value = '';
     productImageInput.value = null;
     displayProducts();
-    saveProductsToLocalStorage(); // Save products to local storage
+    saveProductsToLocalStorage(); 
   }
 });
 
@@ -145,15 +145,15 @@ function handleDeleteButtonClick(event) {
   const index = event.target.getAttribute('data-index');
   products.splice(index, 1);
   displayProducts();
-  saveProductsToLocalStorage(); // Save products to local storage
+  saveProductsToLocalStorage(); 
 }
 
-// Add a function to save products to local storage
+
 function saveProductsToLocalStorage() {
   localStorage.setItem('products', JSON.stringify(products));
 }
 
-// Function to load products from local storage when the page loads
+
 function loadProductsFromLocalStorage() {
   const storedProducts = JSON.parse(localStorage.getItem('products'));
   if (storedProducts && Array.isArray(storedProducts)) {
@@ -162,5 +162,5 @@ function loadProductsFromLocalStorage() {
   }
 }
 
-// Call the function to load products from local storage when the page loads
+
 loadProductsFromLocalStorage();
